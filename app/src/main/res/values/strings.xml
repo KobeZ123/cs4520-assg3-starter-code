@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">assignment3</string>
+    <string name="mvpButtonText">MVP</string>
+    <string name="mvvmButtonText">MVVM</string>
+    <string name="mvp_fragment">MVP Fragment</string>
+    <string name="mvvm_fragment">MVVM Fragment</string>
 </resources>
