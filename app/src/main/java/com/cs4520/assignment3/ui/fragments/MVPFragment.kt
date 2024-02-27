@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.cs4520.assignment3.R
-import com.cs4520.assignment3.data.MvpContract
-import com.cs4520.assignment3.data.MvpPresenter
+import com.cs4520.assignment3.data.mvp.MvpContract
+import com.cs4520.assignment3.data.mvp.MvpPresenter
 import com.cs4520.assignment3.databinding.FragmentMvpBinding
 
 class MVPFragment : Fragment(), MvpContract.View {
@@ -30,8 +30,13 @@ class MVPFragment : Fragment(), MvpContract.View {
         return binding.root
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         presenter = MvpPresenter(this)
 
         binding.addButton.setOnClickListener {
@@ -63,24 +68,16 @@ class MVPFragment : Fragment(), MvpContract.View {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }
-
-    override fun showInvalidInputError() {
+    override fun showToastMessage(message: String) {
         Toast.makeText(
             this.context,
-            "Invalid input! Please enter valid numbers.",
+            message,
             Toast.LENGTH_LONG
         ).show()
     }
 
     override fun setResultText(resultValue: Double) {
         binding.resultText.text = getString(R.string.result, resultValue)
+        binding.resultText.visibility = View.VISIBLE
     }
 }

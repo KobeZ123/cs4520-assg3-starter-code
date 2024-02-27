@@ -1,10 +1,10 @@
-package com.cs4520.assignment3.data
+package com.cs4520.assignment3.data.mvp
 
 // MVP architecture: https://www.scaler.com/topics/android/mvp-architecture-android/
 public interface MvpContract {
     // interface for the View
     interface View {
-        fun showInvalidInputError()
+        fun showToastMessage(message: String)
 
         fun setResultText(resultValue: Double)
     }

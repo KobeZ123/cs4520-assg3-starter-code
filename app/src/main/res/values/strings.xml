@@ -11,5 +11,5 @@
     <string name="subtract">SUBTRACT</string>
     <string name="multiply">MULTIPLY</string>
     <string name="divide">DIVIDE</string>
-    <string name="result">Result: %f</string>
+    <string name="result">Result: %.2f</string>
 </resources>
