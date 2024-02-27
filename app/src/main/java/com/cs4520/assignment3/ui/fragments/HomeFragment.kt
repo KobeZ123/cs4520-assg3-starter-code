@@ -8,24 +8,33 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.cs4520.assignment3.R
+import com.cs4520.assignment3.databinding.FragmentHomeBinding
 
+/**
+ * Home fragment
+ */
 class HomeFragment: Fragment() {
+
+    private lateinit var binding: FragmentHomeBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+    ): View {
+        super.onCreateView(inflater, container, savedInstanceState)
+        binding = FragmentHomeBinding.inflate(layoutInflater)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        view.findViewById<Button>(R.id.mvpButton).setOnClickListener {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.mvpButton.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_mvpFragment)
         }
 
-        view.findViewById<Button>(R.id.mvvmButton).setOnClickListener {
+        binding.mvvmButton.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_mvvmFragment)
         }
-        super.onViewCreated(view, savedInstanceState)
     }
 }

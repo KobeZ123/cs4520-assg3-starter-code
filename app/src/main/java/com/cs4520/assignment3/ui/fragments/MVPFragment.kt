@@ -11,6 +11,9 @@ import com.cs4520.assignment3.data.mvp.MvpContract
 import com.cs4520.assignment3.data.mvp.MvpPresenter
 import com.cs4520.assignment3.databinding.FragmentMvpBinding
 
+/**
+ * Fragment for MVP architecture
+ */
 class MVPFragment : Fragment(), MvpContract.View {
     private var _binding: FragmentMvpBinding? = null
     private val binding get() = _binding!!
@@ -39,6 +42,7 @@ class MVPFragment : Fragment(), MvpContract.View {
         super.onViewCreated(view, savedInstanceState)
         presenter = MvpPresenter(this)
 
+        // setting on click listeners
         binding.addButton.setOnClickListener {
             presenter.onAdditionClick(
                 num1 = binding.firstNumber.text.toString(),

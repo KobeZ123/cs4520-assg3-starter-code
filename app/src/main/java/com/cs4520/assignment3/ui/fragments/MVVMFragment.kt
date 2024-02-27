@@ -11,6 +11,9 @@ import com.cs4520.assignment3.R
 import com.cs4520.assignment3.data.mvvm.MvvmViewModel
 import com.cs4520.assignment3.databinding.FragmentMvvmBinding
 
+/**
+ * Fragment for MVVM architecture
+ */
 class MVVMFragment: Fragment() {
     private var _binding: FragmentMvvmBinding? = null
     private val binding get() = _binding!!
@@ -39,7 +42,7 @@ class MVVMFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[MvvmViewModel::class.java]
 
-
+        // setting on click listeners
         binding.addButton.setOnClickListener {
             viewModel.onAdditionClick(
                 num1 = binding.firstNumber.text.toString(),
@@ -67,10 +70,13 @@ class MVVMFragment: Fragment() {
                 num2 = binding.secondNumber.text.toString()
             )
         }
-        
+
         initObserver()
     }
 
+    /**
+     * initializes the live data observers
+     */
     private fun initObserver() {
         viewModel.resultLiveData.observe(viewLifecycleOwner) {
             if (it == null) {
