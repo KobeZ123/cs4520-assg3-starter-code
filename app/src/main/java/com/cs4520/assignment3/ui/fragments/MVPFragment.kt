@@ -48,6 +48,8 @@ class MVPFragment : Fragment(), MvpContract.View {
                 num1 = binding.firstNumber.text.toString(),
                 num2 = binding.secondNumber.text.toString()
             )
+            binding.firstNumber.text.clear()
+            binding.secondNumber.text.clear()
         }
 
         binding.subtractButton.setOnClickListener {
@@ -55,6 +57,8 @@ class MVPFragment : Fragment(), MvpContract.View {
                 num1 = binding.firstNumber.text.toString(),
                 num2 = binding.secondNumber.text.toString()
             )
+            binding.firstNumber.text.clear()
+            binding.secondNumber.text.clear()
         }
 
         binding.multiplyButton.setOnClickListener {
@@ -62,6 +66,8 @@ class MVPFragment : Fragment(), MvpContract.View {
                 num1 = binding.firstNumber.text.toString(),
                 num2 = binding.secondNumber.text.toString()
             )
+            binding.firstNumber.text.clear()
+            binding.secondNumber.text.clear()
         }
 
         binding.divideButton.setOnClickListener {
@@ -69,6 +75,8 @@ class MVPFragment : Fragment(), MvpContract.View {
                 num1 = binding.firstNumber.text.toString(),
                 num2 = binding.secondNumber.text.toString()
             )
+            binding.firstNumber.text.clear()
+            binding.secondNumber.text.clear()
         }
     }
 
